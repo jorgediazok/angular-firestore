@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-firestore"
+    }
+  },
+  "defaultProject": "angular-firestore",
+  "cli": {
+    "analytics": "f59e20c3-50e1-4178-b2bb-a3a97dcc8736"
+  }
 }
