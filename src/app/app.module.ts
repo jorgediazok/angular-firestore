@@ -7,8 +7,8 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import { ProductsComponent } from './components/products/products.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '..environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, ProductFormComponent, ProductsComponent],
