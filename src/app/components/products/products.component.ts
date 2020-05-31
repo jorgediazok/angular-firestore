@@ -21,7 +21,9 @@ export class ProductsComponent implements OnInit {
     });
   }
   deleteProduct(event, product) {
-    this.productService.deleteProduct(product);
+    if (confirm('Are you sure you want to delete this?')) {
+      this.productService.deleteProduct(product);
+    }
   }
 
   editProduct(event, product) {
