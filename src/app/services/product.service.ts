@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
-  AngularFirestoreCollection,AngularFirestoreDocument
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,7 +14,7 @@ import { Product } from '../models/product';
 export class ProductService {
   productsCollection: AngularFirestoreCollection<Product>;
   products: Observable<Product[]>;
-  productsDoc: AngularFirestoreDocument<Product>;
+  productDoc: AngularFirestoreDocument<Product>;
 
   constructor(public db: AngularFirestore) {
     //this.products = this.db.collection('products').valueChanges();
@@ -33,7 +34,12 @@ export class ProductService {
     return this.products;
   }
 
+  addProduct(product: Product) {
+    this.productsCollection.add(product);
+  }
+
   deleteProduct(product: Product) {
-    this.
+    this.productDoc = this.db.doc(`products/${product.id}`);
+    this.productDoc.delete();
   }
 }
