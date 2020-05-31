@@ -13,4 +13,15 @@ export class ProductFormComponent implements OnInit {
   constructor(public productService: ProductService) {}
 
   ngOnInit(): void {}
+
+  addProduct() {
+    if (
+      this.product.name !== '' &&
+      this.product.description !== '' &&
+      this.product.price !== 0
+    ) {
+      this.productService.addProduct(this.product);
+      this.product = {} as Product;
+    }
+  }
 }

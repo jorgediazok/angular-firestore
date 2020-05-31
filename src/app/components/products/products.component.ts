@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { Product } from 'src/app/models/product';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,9 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products = [];
+
+  editingProduct: Product;
+  editing: boolean = false;
 
   constructor(public productService: ProductService) {}
 
@@ -18,5 +22,16 @@ export class ProductsComponent implements OnInit {
   }
   deleteProduct(event, product) {
     this.productService.deleteProduct(product);
+  }
+
+  editProduct(event, product) {
+    this.editingProduct = product;
+    this.editing = !this.editing;
+  }
+
+  updateProduct() {
+    this.productService.updateProduct(this.editingProduct);
+    this.editingProduct = {} as Product;
+    this.editing = false;
   }
 }
