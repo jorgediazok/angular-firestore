@@ -16,4 +16,7 @@ export class ProductsComponent implements OnInit {
       this.products = products;
     });
   }
+  deleteProduct(event, product) {
+    console.log(product);
+  }
 }
