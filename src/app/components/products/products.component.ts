@@ -19,6 +19,8 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
     });
+
+    //Crud
   }
   deleteProduct(event, product) {
     if (confirm('Are you sure you want to delete this?')) {
